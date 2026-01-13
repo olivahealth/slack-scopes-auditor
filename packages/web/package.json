@@ -1,0 +1,16 @@
+{
+  "name": "@slack-scopes-auditor/web",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Web UI for Slack scopes auditing",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "echo 'No build required'"
+  },
+  "dependencies": {
+    "@slack-scopes-auditor/core": "workspace:*"
+  },
+  "license": "CC0-1.0"
+}

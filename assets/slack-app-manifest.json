@@ -1,0 +1,22 @@
+{
+  "_metadata": {
+    "major_version": 1,
+    "minor_version": 1
+  },
+  "display_information": {
+    "name": "Slack Scopes Auditor",
+    "description": "Audit Slack app scopes and integration logs",
+    "background_color": "#1a1a2e",
+    "long_description": "An open-source tool for auditing Slack app scopes using the team.integrationLogs API. This app helps IT admins and organization admins verify what scopes have been granted to Slack apps in their workspace. It requires admin privileges to access integration logs and is only available on paid Slack plans."
+  },
+  "oauth_config": {
+    "scopes": {
+      "user": ["admin"]
+    }
+  },
+  "settings": {
+    "org_deploy_enabled": false,
+    "socket_mode_enabled": false,
+    "token_rotation_enabled": false
+  }
+}

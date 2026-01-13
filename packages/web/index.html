@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slack Scopes Auditor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Slack Scopes Auditor</h1>
+      <p class="subtitle">Verify what scopes Slack apps have been granted in your workspace</p>
+    </header>
+
+    <main>
+      <section class="setup-section">
+        <h2>Setup</h2>
+        <div class="form-group">
+          <label for="token">Slack Token (xoxp-...)</label>
+          <input type="password" id="token" placeholder="xoxp-your-token-here">
+          <small>
+            Don't have a token?
+            <a href="#" onclick="showManifestInfo()">Create a Slack app</a>
+          </small>
+        </div>
+        <div class="form-group">
+          <label for="appId">App ID to Audit</label>
+          <input type="text" id="appId" placeholder="A1234567890">
+        </div>
+        <button id="auditBtn" onclick="runAudit()">Audit Scopes</button>
+      </section>
+
+      <section id="results" class="results-section hidden">
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="scopes">Current Scopes</button>
+          <button class="tab-btn" data-tab="timeline">Event Timeline</button>
+          <button class="tab-btn" data-tab="users">User Permissions</button>
+        </div>
+
+        <div id="tab-scopes" class="tab-content active">
+          <h2>Current Active Scopes</h2>
+          <div id="scopesContainer"></div>
+        </div>
+
+        <div id="tab-timeline" class="tab-content">
+          <h2>Event Timeline</h2>
+          <div id="timelineContainer"></div>
+        </div>
+
+        <div id="tab-users" class="tab-content">
+          <h2>User Permissions</h2>
+          <div id="usersContainer"></div>
+        </div>
+      </section>
+
+      <section id="manifestInfo" class="manifest-section hidden">
+        <h2>Create Your Auditor App</h2>
+        <div class="steps">
+          <h3>Prerequisites</h3>
+          <ul>
+            <li>A paid Slack workspace (team.integrationLogs requires paid plan)</li>
+            <li>Workspace admin privileges</li>
+          </ul>
+
+          <h3>Step 1: Create a Slack App</h3>
+          <ol>
+            <li>Go to <a href="https://api.slack.com/apps" target="_blank">api.slack.com/apps</a></li>
+            <li>Click "Create New App"</li>
+            <li>Select "From an app manifest"</li>
+            <li>Choose your workspace</li>
+            <li>Paste the manifest below</li>
+            <li>Click "Create"</li>
+          </ol>
+
+          <h3>Step 2: Install the App</h3>
+          <ol>
+            <li>Go to "Install App" in the left sidebar</li>
+            <li>Click "Install to Workspace"</li>
+            <li>Review and allow the permissions</li>
+          </ol>
+
+          <h3>Step 3: Get Your Token</h3>
+          <ol>
+            <li>After installation, copy the "User OAuth Token" (starts with xoxp-)</li>
+            <li>Paste it in the form above</li>
+          </ol>
+
+          <h3>App Manifest</h3>
+          <pre id="manifestCode"></pre>
+          <button onclick="copyManifest()">Copy Manifest</button>
+        </div>
+        <button onclick="hideManifestInfo()">Close</button>
+      </section>
+
+      <section id="error" class="error-section hidden">
+        <h2>Error</h2>
+        <p id="errorMessage"></p>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Open source tool by <a href="https://github.com/olivahealth" target="_blank">Oliva Health</a> |
+        <a href="https://github.com/olivahealth/slack-scopes-auditor" target="_blank">GitHub</a>
+      </p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
