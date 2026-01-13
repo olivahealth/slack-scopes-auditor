@@ -13,13 +13,22 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "eslint packages/*/src/**/*.ts",
+    "lint:fix": "eslint packages/*/src/**/*.ts --fix",
     "typecheck": "tsc --build",
-    "clean": "pnpm -r run clean"
+    "clean": "pnpm -r run clean",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "packages/*/src/**/*.ts": [
+      "eslint --fix"
+    ]
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
     "@types/node": "^20.0.0",
     "eslint": "^9.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "typescript": "^5.7.0",
     "typescript-eslint": "^8.53.0",
     "vitest": "^3.0.0"
