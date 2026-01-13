@@ -1,0 +1,41 @@
+{
+  "name": "@slack-scopes-auditor/core",
+  "version": "0.0.1",
+  "description": "Core library for Slack scopes auditing",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist *.tsbuildinfo",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "ky": "^1.7.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  },
+  "keywords": [
+    "slack",
+    "scopes",
+    "audit",
+    "security"
+  ],
+  "license": "CC0-1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/olivahealth/slack-scopes-auditor.git",
+    "directory": "packages/core"
+  }
+}
