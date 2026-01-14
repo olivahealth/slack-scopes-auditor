@@ -8,11 +8,13 @@ services:
     # Override command when running, e.g.:
     # docker compose run cli audit --app-id A1234567890
 
-  # Web UI service - serves the static web interface
+  # Web UI service - serves the web interface with API backend
   # Set PORT env var to change the host port (default: 3000)
   # Example: PORT=8080 docker compose up web
   web:
     build: .
-    entrypoint: ["npx", "serve", "/app/packages/web"]
+    entrypoint: ["node", "/app/packages/web/server.js"]
+    environment:
+      - PORT=3000
     ports:
       - "${PORT:-3000}:3000"

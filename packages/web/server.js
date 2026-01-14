@@ -12,7 +12,7 @@ import {
 } from '@slack-scopes-auditor/core';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 const MIME_TYPES = {
   '.html': 'text/html',

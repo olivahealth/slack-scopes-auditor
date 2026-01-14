@@ -16,7 +16,7 @@
     "lint:fix": "eslint packages/*/src/**/*.ts --fix",
     "typecheck": "tsc --build",
     "clean": "pnpm -r run clean",
-    "prepare": "husky"
+    "prepare": "husky || true"
   },
   "lint-staged": {
     "packages/*/src/**/*.ts": [
